@@ -1,0 +1,1870 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nepal Electricity — Powering the Future</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#0F172A',
+            inkLight: '#1E293B',
+            inkMuted: '#334155',
+            inkSubtle: '#64748B',
+            cream: '#FDF8F3',
+            creamWarm: '#F5EDE4',
+            creamDark: '#EDE3D6',
+            sand: '#E8DDD0',
+            sandLight: '#F0E8DE',
+            sandBorder: '#D4C8B8',
+            accent: '#1E3A8A',
+            accentLight: '#3B82F6',
+            accentPale: '#DBEAFE',
+            accentMuted: '#93C5FD',
+            energy: '#059669',
+            energyLight: '#34D399',
+            energyPale: '#D1FAE5',
+            alert: '#B45309',
+            alertLight: '#F59E0B',
+            alertPale: '#FEF3C7',
+            danger: '#991B1B',
+            dangerLight: '#EF4444',
+            dangerPale: '#FEE2E2',
+          },
+          fontFamily: {
+            serif: ['DM Serif Display', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: #FDF8F3;
+      color: #0F172A;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::selection {
+      background: #1E3A8A;
+      color: #FDF8F3;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #F5EDE4;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #D4C8B8;
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #1E3A8A;
+    }
+
+    /* ========== HERO ========== */
+    .hero-wrap {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(30, 58, 138, 0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(245, 237, 228, 0.5) 0%, transparent 50%),
+        radial-gradient(ellipse 70% 50% at 50% 100%, rgba(30, 58, 138, 0.06) 0%, transparent 50%);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(30, 58, 138, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 58, 138, 0.03) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 70%);
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(30, 58, 138, 0.08) 0%, transparent 70%);
+      top: 10%;
+      right: -10%;
+      animation: glowDrift 20s ease-in-out infinite alternate;
+    }
+
+    .hero-glow-2 {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245, 237, 228, 0.6) 0%, transparent 70%);
+      bottom: 5%;
+      left: -5%;
+      animation: glowDrift 15s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes glowDrift {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+      50% {
+        transform: translate(-30px, 20px) scale(1.05);
+      }
+      100% {
+        transform: translate(20px, -15px) scale(0.95);
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    /* ========== NAV ========== */
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-bar.scrolled {
+      background: rgba(253, 248, 243, 0.85);
+      backdrop-filter: blur(20px) saturate(1.2);
+      -webkit-backdrop-filter: blur(20px) saturate(1.2);
+      box-shadow: 0 1px 0 rgba(30, 58, 138, 0.06), 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-link {
+      position: relative;
+      color: #64748B;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      width: 0;
+      height: 1.5px;
+      background: #1E3A8A;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #1E3A8A;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* ========== ANIMATIONS ========== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    .reveal-delay-4 {
+      transition-delay: 0.4s;
+    }
+
+    /* ========== CARDS ========== */
+    .card-elegant {
+      background: #FFFFFF;
+      border: 1px solid #E8DDD0;
+      border-radius: 16px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-elegant::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #1E3A8A, #3B82F6, #1E3A8A);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-elegant:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(30, 58, 138, 0.08), 0 8px 24px rgba(0, 0, 0, 0.04);
+      border-color: #D4C8B8;
+    }
+
+    .card-elegant:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card-solution {
+      background: linear-gradient(135deg, #FFFFFF 0%, #FDF8F3 100%);
+      border: 1px solid #E8DDD0;
+      border-radius: 20px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .card-solution:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 64px rgba(30, 58, 138, 0.1);
+    }
+
+    /* ========== BUTTONS ========== */
+    .btn-primary {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #1E3A8A;
+      color: #FDF8F3;
+      padding: 14px 32px;
+      border-radius: 12px;
+      font-weight: 500;
+      font-size: 0.9375rem;
+      letter-spacing: -0.01em;
+      border: none;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 14px rgba(30, 58, 138, 0.25);
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 40%, rgba(255, 255, 255, 0.1) 50%, transparent 60%);
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+
+    .btn-primary:hover {
+      background: #1E40AF;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(30, 58, 138, 0.35);
+    }
+
+    .btn-primary:hover::before {
+      transform: translateX(100%);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #1E3A8A;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 500;
+      font-size: 0.9375rem;
+      border: 1.5px solid #D4C8B8;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-ghost:hover {
+      background: #F5EDE4;
+      border-color: #1E3A8A;
+      transform: translateY(-2px);
+    }
+
+    /* ========== SECTION DIVIDERS ========== */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #D4C8B8, transparent);
+      margin: 0 auto;
+      max-width: 200px;
+    }
+
+    /* ========== TIMELINE ========== */
+    .timeline-line {
+      position: absolute;
+      left: 24px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, #1E3A8A, #3B82F6, #1E3A8A);
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 15px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #FDF8F3;
+      border: 3px solid #1E3A8A;
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item:hover .timeline-dot {
+      background: #1E3A8A;
+      box-shadow: 0 0 0 6px rgba(30, 58, 138, 0.15);
+    }
+
+    /* ========== PROGRESS BARS ========== */
+    .progress-track {
+      height: 8px;
+      background: #E8DDD0;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 0;
+    }
+
+    .progress-fill.animated {
+      width: var(--target-width);
+    }
+
+    /* ========== CHART ========== */
+    .chart-container {
+      position: relative;
+      height: 320px;
+    }
+
+    /* ========== STAT COUNTER ========== */
+    .stat-number {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 3.5rem;
+      line-height: 1;
+      color: #1E3A8A;
+      letter-spacing: -0.03em;
+    }
+
+    /* ========== TAGS ========== */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    /* ========== IMAGE FRAMES ========== */
+    .img-frame {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .img-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+      pointer-events: none;
+    }
+
+    .img-frame img {
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .img-frame:hover img {
+      transform: scale(1.05);
+    }
+
+    /* ========== QUOTE ========== */
+    .quote-mark {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 6rem;
+      line-height: 1;
+      color: #1E3A8A;
+      opacity: 0.08;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer-top {
+      background: #0F172A;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-top::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    }
+
+    .footer-grid-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, black 20%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, black 20%, transparent 70%);
+    }
+
+    /* ========== MOBILE MENU ========== */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      background: rgba(253, 248, 243, 0.98);
+      backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .mobile-menu.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .mobile-menu a {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 2rem;
+      color: #0F172A;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .mobile-menu a:hover {
+      color: #1E3A8A;
+    }
+
+    /* ========== HAMBURGER ========== */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 101;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #0F172A;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .desktop-nav {
+        display: none;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+      }
+    }
+
+    /* ========== SOLUTION ICON WRAP ========== */
+    .solution-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .card-solution:hover .solution-icon {
+      transform: scale(1.1) rotate(-3deg);
+    }
+
+    /* ========== PARALLAX WRAP ========== */
+    .parallax-img {
+      will-change: transform;
+    }
+
+    /* ========== CURSOR GLOW ========== */
+    .cursor-glow {
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(30, 58, 138, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s ease;
+    }
+
+    @media (pointer: coarse) {
+      .cursor-glow {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cursor Glow -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Navigation -->
+  <nav class="nav-bar" id="navbar">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-[72px]">
+        <a href="#home" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-xl bg-accent flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+            <svg class="w-5 h-5 text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <span class="font-serif text-xl text-ink tracking-tight">Nepal<span class="text-accent">Power</span></span>
+        </a>
+
+        <div class="desktop-nav hidden md:flex items-center gap-1">
+          <a href="#home" class="nav-link active px-4 py-2 text-sm font-medium">Home</a>
+          <a href="#problems" class="nav-link px-4 py-2 text-sm font-medium">Problems</a>
+          <a href="#solutions" class="nav-link px-4 py-2 text-sm-medium">Solutions</a>
+          <a href="#data" class="nav-link px-4 py-2 text-sm font-medium">Data</a>
+          <a href="#timeline" class="nav-link px-4 py-2 text-sm font-medium">Timeline</a>
+          <a href="#calculator" class="nav-link px-4 py-2 text-sm font-medium">Calculator</a>
+        </div>
+
+        <div class="hidden md:block">
+          <a href="#solutions" class="btn-primary text-sm py-2.5 px-5">
+            Explore Solutions
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="hamburger md:hidden" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="closeMobileMenu()">Home</a>
+    <a href="#problems" onclick="closeMobileMenu()">Problems</a>
+    <a href="#solutions" onclick="closeMobileMenu()">Solutions</a>
+    <a href="#data" onclick="closeMobileMenu()">Data</a>
+    <a href="#timeline" onclick="closeMobileMenu()">Timeline</a>
+    <a href="#calculator" onclick="closeMobileMenu()">Calculator</a>
+  </div>
+
+  <!-- ==================== HERO ==================== -->
+  <section id="home" class="hero-wrap">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="hero-glow"></div>
+      <div class="hero-glow-2"></div>
+    </div>
+
+    <!-- Decorative Elements -->
+    <div class="absolute top-32 left-8 w-px h-40 bg-gradient-to-b from-transparent via-sandBorder to-transparent hidden lg:block"></div>
+    <div class="absolute bottom-32 right-8 w-px h-40 bg-gradient-to-b from-transparent via-sandBorder to-transparent hidden lg:block"></div>
+
+    <div class="hero-content">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full pt-24 pb-16">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div class="max-w-xl">
+            <div class="reveal">
+              <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-accentPale/60 border border-accentMuted/20 mb-8">
+                <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+                <span class="text-xs font-semibold text-accent uppercase tracking-widest">Current Status 2024</span>
+              </div>
+            </div>
+
+            <h1 class="reveal reveal-delay-1 font-serif text-5xl sm:text-6xl lg:text-7xl text-ink leading-[1.05] tracking-tight mb-6">
+              Electricity in
+              <span class="relative inline-block">
+                <span class="relative z-10 text-accent">Nepal</span>
+                <svg class="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none" preserveAspectRatio="none">
+                  <path d="M2 8C50 2 150 2 198 8" stroke="#93C5FD" stroke-width="4" stroke-linecap="round" />
+                </svg>
+              </span>
+            </h1>
+
+            <p class="reveal reveal-delay-2 text-lg text-inkSubtle leading-relaxed mb-10 max-w-md">
+              From chronic power shortages to emerging energy independence. Explore the challenges, progress, and the path toward a fully electrified Nepal.
+            </p>
+
+            <div class="reveal reveal-delay-3 flex flex-wrap gap-4 mb-12">
+              <a href="#problems" class="btn-primary">
+                Discover the Challenges
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </a>
+              <a href="#solutions" class="btn-ghost">
+                View Solutions
+              </a>
+            </div>
+
+            <div class="reveal reveal-delay-4 flex items-center gap-6">
+              <div class="flex -space-x-3">
+                <div class="w-10 h-10 rounded-full bg-accentPale border-2 border-cream flex items-center justify-center">
+                  <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-energyPale border-2 border-cream flex items-center justify-center">
+                  <svg class="w-4 h-4 text-energy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" />
+                  </svg>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-alertPale border-2 border-cream flex items-center justify-center">
+                  <svg class="w-4 h-4 text-alert" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="text-sm text-inkSubtle">
+                <span class="font-semibold text-ink">3 Key Areas</span>
+                <span class="mx-2 text-sandBorder">|</span>
+                Problems, Solutions & Data
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-2 relative hidden lg:block">
+            <div class="relative">
+              <div class="img-frame aspect-[4/5] shadow-2xl shadow-accent/10">
+                <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&h=1000&fit=crop&q=80" alt="Himalayan landscape with power lines" class="w-full h-full object-cover parallax-img" id="heroImg">
+              </div>
+              <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-5 shadow-xl border border-sandLight max-w-[220px]">
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-10 h-10 rounded-xl bg-energyPale flex items-center justify-center">
+                    <svg class="w-5 h-5 text-energy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="text-xs text-inkSubtle font-medium">Grid Access</div>
+                    <div class="text-lg font-serif text-ink font-bold">93%</div>
+                  </div>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill bg-energy" style="--target-width: 93%"></div>
+                </div>
+              </div>
+              <div class="absolute -top-4 -right-4 bg-white rounded-2xl p-4 shadow-xl border border-sandLight">
+                <div class="text-xs text-inkSubtle font-medium mb-1">Peak Demand</div>
+                <div class="text-2xl font-serif text-accent font-bold">2,150 <span class="text-sm font-sans font-normal text-inkSubtle">MW</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+      <span class="text-[10px] uppercase tracking-[0.2em] text-inkSubtle font-medium">Scroll</span>
+      <div class="w-px h-8 bg-gradient-to-b from-inkSubtle to-transparent"></div>
+    </div>
+  </section>
+
+  <!-- ==================== STATS BAR ==================== -->
+  <section class="py-16 bg-white border-y border-sandLight">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div class="reveal text-center lg:text-left">
+          <div class="stat-number" data-target="93">0</div>
+          <div class="text-sm text-inkSubtle mt-2 font-medium">% Population with Grid Access</div>
+        </div>
+        <div class="reveal reveal-delay-1 text-center lg:text-left">
+          <div class="stat-number" data-target="2150">0</div>
+          <div class="text-sm text-inkSubtle mt-2 font-medium">MW Peak Demand (2024)</div>
+        </div>
+        <div class="reveal reveal-delay-2 text-center lg:text-left">
+          <div class="stat-number" data-target="83">0</div>
+          <div class="text-sm text-inkSubtle mt-2 font-medium">% Generation from Hydropower</div>
+        </div>
+        <div class="reveal reveal-delay-3 text-center lg:text-left">
+          <div class="stat-number" data-target="24">0</div>
+          <div class="text-sm text-inkSubtle mt-2 font-medium">Hours/Day Load Shedding (2016)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROBLEMS ==================== -->
+  <section id="problems" class="py-24 lg:py-32 bg-cream relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-2xl mb-16">
+        <div class="reveal">
+          <span class="tag bg-dangerPale text-danger mb-4">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+            Critical Challenges
+          </span>
+        </div>
+        <h2 class="reveal reveal-delay-1 font-serif text-4xl lg:text-5xl text-ink leading-tight mb-5">
+          Problems Facing Nepal's<br>
+          <span class="text-dangerLight">Electricity Sector</span>
+        </h2>
+        <p class="reveal reveal-delay-2 text-inkSubtle text-lg leading-relaxed">
+          Despite remarkable progress, Nepal's electricity infrastructure continues to grapple with deep-rooted structural challenges that affect millions of lives.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="reveal card-elegant p-7">
+          <div class="w-12 h-12 rounded-xl bg-dangerPale flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-dangerLight" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="font-serif text-xl text-ink mb-3">Load Shedding Legacy</h3>
+          <p class="text-inkSubtle text-sm leading-relaxed mb-5">
+            Until 2016, Nepalis endured up to 14 hours of daily power cuts. The psychological and economic scars persist in business planning and public trust.
+          </p>
+          <div class="progress-track mb-2">
+            <div class="progress-fill bg-dangerLight" style="--target-width: 58%"></div>
+          </div>
+          <div class="flex justify-between text-xs">
+            <span class="text-inkSubtle">Impact Severity</span>
+            <span class="font-semibold text-danger">High</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="reveal reveal-delay-1 card-elegant p-7">
+          <div class="w-12 h-12 rounded-xl bg-alertPale flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-alert" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </div>
+          <h3 class="font-serif text-xl text-ink mb-3">Seasonal Dependency</h3>
+          <p class="text-inkSubtle text-sm leading-relaxed mb-5">
+            Dry season generation drops by 60%. Nepal imports over 500 MW from India during winter months, draining foreign reserves.
+          </p>
+          <div class="progress-track mb-2">
+            <div class="progress-fill bg-alertLight" style="--target-width: 72%"></div>
+          </div>
+          <div class="flex justify-between text-xs">
+            <span class="text-inkSubtle">Impact Severity</span>
+            <span class="font-semibold text-alert">Critical</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="reveal reveal-delay-2 card-elegant p-7">
+          <div class="w-12 h-12 rounded-xl bg-accentPale flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+          </div>
+          <h3 class="font-serif text-xl text-ink mb-3">Rural Electrification Gap</h3>
+          <p class="text-inkSubtle text-sm leading-relaxed mb-5">
+            7% of the population (approx. 2 million people) still lacks grid access, concentrated in remote Himalayan and Terai regions.
+          </p>
+          <div class="progress-track mb-2">
+            <div class="progress-fill bg-accentLight" style="--target-width: 35%"></div>
+          </div>
+          <div class="flex justify-between text-xs">
+            <span class="text-inkSubtle">Impact Severity</span>
+            <span class="font-semibold text-accent">Moderate</span>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="reveal card-elegant p-7">
+          <div class="w-12 h-12 rounded-xl bg-dangerPale flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-dangerLight" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="font-serif text-xl text-ink mb-3">Aging Infrastructure</h3>
+          <p class="text-inkSubtle text-sm leading-relaxed mb-5">
+            40% of transmission lines are over 30 years old. Technical losses reach 15.5% — nearly double the global average of 8%.
+          </p>
+          <div class="progress-track mb-2">
+            <div class="progress-fill bg-dangerLight" style="--target-width: 65%"></div>
+          </div>
+          <div class="flex justify-between text-xs">
+            <span class="text-inkSubtle">Impact Severity</span>
+            <span class="font-semibold text-danger">High</span>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="reveal reveal-delay-1 card-elegant p-7">
+          <div class="w-12 h-12 rounded-xl bg-alertPale flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-alert" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="font-serif text-xl text-ink mb-3">High Electricity Costs</h3>
+          <p class="text-inkSubtle text-sm leading-relaxed mb-5">
+            Industrial tariffs average NPR 12.50/kWh, among the highest in South Asia, discouraging manufacturing investment.
+          </p>
+          <div class="progress-track mb-2">
+            <div class="progress-fill bg-alertLight" style="--target-width: 55%"></div>
+          </div>
+          <div class="flex justify-between text-xs">
+            <span class="text-inkSubtle">Impact Severity</span>
+            <span class="font-semibold text-alert">High</span>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="reveal reveal-delay-2 card-elegant p-7">
+          <div class="w-12 h-12 rounded-xl bg-accentPale flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="font-serif text-xl text-ink mb-3">Cross-Border Dependency</h3>
+          <p class="text-inkSubtle text-sm leading-relaxed mb-5">
+            Heavy reliance on Indian imports during dry months creates geopolitical vulnerability and trade imbalance concerns.
+          </p>
+          <div class="progress-track mb-2">
+            <div class="progress-fill bg-accentLight" style="--target-width: 48%"></div>
+          </div>
+          <div class="flex justify-between text-xs">
+            <span class="text-inkSubtle">Impact Severity</span>
+            <span class="font-semibold text-accent">Moderate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SOLUTIONS ==================== -->
+  <section id="solutions" class="py-24 lg:py-32 bg-white relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="reveal">
+          <span class="tag bg-energyPale text-energy mb-4">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Active Solutions
+          </span>
+        </div>
+        <h2 class="reveal reveal-delay-1 font-serif text-4xl lg:text-5xl text-ink leading-tight mb-5">
+          Solutions Powering<br>
+          <span class="text-energy">Nepal's Energy Future</span>
+        </h2>
+        <p class="reveal reveal-delay-2 text-inkSubtle text-lg">
+          From massive hydropower projects to community solar, Nepal is deploying a multi-pronged strategy to achieve energy security.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Solution 1 -->
+        <div class="reveal card-solution p-8">
+          <div class="solution-icon bg-accentPale mb-6">
+            <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="font-serif text-xl text-ink mb-3">Hydropower Expansion</h3>
+          <p class="text-inkSubtle text-sm leading-relaxed mb-6">
+            Nepal has identified 83,000 MW of hydropower potential. Projects like Upper Tamakoshi (456 MW) and Arun-3 (900 MW) are transforming the generation landscape.
+          </p>
+          <div class="flex items-center gap-3 p-4 bg-cream rounded-xl">
+            <div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center shadow-sm">
+              <span class="text-lg font-serif font-bold text-accent">456</span>
+            </div>
+            <div>
+              <div class="text-xs text-inkSubtle">Upper Tamakoshi</div>
+              <div class="text-sm font-semibold text-ink">MW Capacity</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solution 2 -->
+        <div class="reveal reveal-delay-1 card-solution p-8">
+          <div class="solution-icon bg-energyPale mb-6">
+            <svg class="w-7 h-7 text-energy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" />
+            </svg>
+          </div>
+          <h3 class="font-serif text-xl text-ink mb-3">Solar Energy Surge</h3>
+          <p class="text-inkSubtle text-sm leading-relaxed mb-6">
+            Solar installations grew from 50 MW in 2020 to over 250 MW in 2024. The 25 MW Nuwakot Solar Plant and rooftop programs are leading the charge.
+          </p>
+          <div class="flex items-center gap-3 p-4 bg-cream rounded-xl">
+            <div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center shadow-sm">
+              <span class="text-lg font-serif font-bold text-energy">250+</span>
+            </div>
+            <div>
+              <div class="text-xs text-inkSubtle">Total Solar Capacity</div>
+              <div class="text-sm font-semibold text-ink">MW Installed</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solution 3 -->
+        <div class="reveal reveal-delay-2 card-solution p-8">
+          <div class="solution-icon bg-accentPale mb-6">
+            <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
+          </div>
+          <h3 class="font-serif text-xl text-ink mb-3">Cross-Border Export</h3>
+          <p class="=" text-inkSubtle text-sm leading-relaxed mb-6">
+            Nepal began exporting 452 MW to India in 2023. The 400 kV Dhalkebar-Muzaffarpur line enables bi-directional power trade.
+          </p>
+          <div class="flex items-center gap-3 p-4 bg-cream rounded-xl">
+            <div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center shadow-sm">
+              <span class="text-lg font-serif font-bold text-accent">452</span>
+            </div>
+            <div>
+              <div class="text-xs text-inkSubtle">Export to India</div>
+              <div class="text-sm font-semibold text-ink">MW (2023)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solution 4 -->
+        <div class="reveal card-solution p-8">
+          <div class="solution-icon bg-energyPale mb-6">
+            <svg class="w-7 h-7 text-energy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="font-serif text-xl text-ink mb-3">Smart Grid Modernization</h3>
+          <p class="text-inkSubtle text-sm leading-relaxed mb-6">
+            NEA is deploying smart meters across Kathmandu and major cities. The SCADA system now monitors 80+ substations in real-time.
+          </p>
+          <div class="flex items-center gap-3 p-4 bg-cream rounded-xl">
+            <div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center shadow-sm">
+              <span class="text-lg font-serif font-bold text-energy">80+</span>
+            </div>
+            <div>
+              <div class="text-xs text-inkSubtle">Substations Monitored</div>
+              <div class="text-sm font-semibold text-ink">Via SCADA</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solution 5 -->
+        <div class="reveal reveal-delay-1 card-solution p-8">
+          <div class="solution-icon bg-accentPale mb-6">
+            <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <h3 class="font-serif text-xl text-ink mb-3">Community Microgrids</h3>
+          <p class="text-inkSubtle text-sm leading-relaxed mb-6">
+            Over 100 micro-hydro plants serve remote villages. The Rural Electrification Program has connected 5.6 million households since 1990.
+          </p>
+          <div class="flex items-center gap-3 p-4 bg-cream rounded-xl">
+            <div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center shadow-sm">
+              <span class="text-lg font-serif font-bold text-accent">100+</span>
+            </div>
+            <div>
+              <div class="text-xs text-inkSubtle">Micro-Hydro Plants</div>
+              <div class="text-sm font-semibold text-ink">In Operation</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solution 6 -->
+        <div class="reveal reveal-delay-2 card-solution p-8">
+          <div class="solution-icon bg-energyPale mb-6">
+            <svg class="w-7 h-7 text-energy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+            </svg>
+          </div>
+          <h3 class="font-serif text-xl text-ink mb-3">Pumped Storage</h3>
+          <p class="text-inkSubtle text-sm leading-relaxed mb-6">
+            The 1,061 MW Dudhkoshi Reservoir Project and 635 MW Dudhkoshi-2 will store energy during monsoon for dry season use.
+          </p>
+          <div class="flex items-center gap-3 p-4 bg-cream rounded-xl">
+            <div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center shadow-sm">
+              <span class="text-lg font-serif font-bold text-energy">1,696</span>
+            </div>
+            <div>
+              <div class="text-xs text-inkSubtle">Pumped Storage</div>
+              <div class="text-sm font-semibold text-ink">MW Planned</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DATA & CHARTS ==================== -->
+  <section id="data" class="py-24 lg:py-32 bg-cream relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <div class="reveal">
+            <span class="tag bg-accentPale text-accent mb-4">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+              Data & Insights
+            </span>
+          </div>
+          <h2 class="reveal reveal-delay-1 font-serif text-4xl lg:text-5xl text-ink leading-tight mb-6">
+            Nepal's Electricity<br>
+            <span class="text-accent">By the Numbers</span>
+          </h2>
+          <p class="reveal reveal-delay-2 text-inkSubtle text-lg leading-relaxed mb-10">
+            Visualizing Nepal's electricity journey — from the dark days of load shedding to today's generation capacity exceeding 2,700 MW.
+          </p>
+
+          <div class="reveal reveal-delay-3 space-y-6">
+            <div class="flex items-start gap-5 p-5 bg-white rounded-2xl border border-sandLight">
+              <div class="w-12 h-12 rounded-xl bg-accentPale flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold text-ink mb-1">Installed Capacity Growth</div>
+                <div class="text-sm text-inkSubtle">From 700 MW in 2015 to over 2,700 MW in 2024 — a nearly 4x increase in under a decade.</div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-5 p-5 bg-white rounded-2xl border border-sandLight">
+              <div class="w-12 h-12 rounded-xl bg-energyPale flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-energy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold text-ink mb-1">Per Capita Consumption</div>
+                <div class="text-sm text-inkSubtle">Currently at 380 kWh/year — far below the global average of 3,200 kWh, indicating massive growth potential.</div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-5 p-5 bg-white rounded-2xl border border-sandLight">
+              <div class="w-12 h-12 rounded-xl bg-alertPale flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-alert" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold text-ink mb-1">Load Shedding Timeline</div>
+                <div class="text-sm text-inkSubtle">Peak cuts reached 14 hours/day in 2008. By 2018, Kathmandu was load-shedding free. Nationwide elimination achieved 2023.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal reveal-delay-2">
+          <div class="bg-white rounded-3xl p-8 border border-sandLight shadow-lg shadow-accent/5">
+            <div class="flex items-center justify-between mb-8">
+              <div>
+                <h3 class="font-serif text-xl text-ink">Generation vs Demand</h3>
+                <p class="text-sm text-inkSubtle mt-1">Megawatts (MW) over time</p>
+              </div>
+              <div class="flex items-center gap-4 text-xs">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-accent"></span>
+                  <span class="text-inkSubtle">Generation</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-alertLight"></span>
+                  <span class="text-inkSubtle">Demand</span>
+                </div>
+              </div>
+            </div>
+            <div class="chart-container" id="mainChart">
+              <canvas id="generationChart"></canvas>
+            </div>
+            <div class="mt-6 pt-6 border-t border-sandLight grid grid-cols-3 gap-4 text-center">
+              <div>
+                <div class="text-2xl font-serif font-bold text-accent">2,700+</div>
+                <div class="text-xs text-inkSubtle mt-1">Current Capacity (MW)</div>
+              </div>
+              <div>
+                <div class="text-2xl font-serif font-bold text-energy">83%</div>
+                <div class="text-xs text-inkSubtle mt-1">Hydro Share</div>
+              </div>
+              <div>
+                <div class="text-2xl font-serif font-bold text-alert">15.5%</div>
+                <div class="text-xs text-inkSubtle mt-1">System Loss</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TIMELINE ==================== -->
+  <section id="timeline" class="py-24 lg:py-32 bg-white">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="reveal">
+          <span class="tag bg-accentPale text-accent mb-4">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Historical Journey
+          </span>
+        </div>
+        <h2 class="reveal reveal-delay-1 font-serif text-4xl lg:text-5xl text-ink leading-tight">
+          The Road to <span class="text-accent">Power</span>
+        </h2>
+      </div>
+
+      <div class="relative pl-4">
+        <div class="timeline-line"></div>
+
+        <div class="space-y-10">
+          <div class="reveal timeline-item relative pl-14">
+            <div class="timeline-dot"></div>
+            <div class="bg-cream rounded-2xl p-6 border border-sandLight">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="font-mono text-sm font-semibold text-accent bg-accentPale px-3 py-1 rounded-lg">1911</span>
+                <span class="text-xs text-inkSubtle uppercase tracking-wider font-medium">Beginning</span>
+              </div>
+              <h3 class="font-serif text-lg text-ink mb-2">First Hydropower Plant</h3>
+              <p class="text-sm text-inkSubtle leading-relaxed">The 500 kW Pharping Hydropower Station became Nepal's first power plant, commissioned during the Rana era with British engineering support.</p>
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-1 timeline-item relative pl-14">
+            <div class="timeline-dot"></div>
+            <div class="bg-cream rounded-2xl p-6 border border-sandLight">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="font-mono text-sm font-semibold text-accent bg-accentPale px-3 py-1 rounded-lg">1985</span>
+                <span class="text-xs text-inkSubtle uppercase tracking-wider font-medium">Expansion</span>
+              </div>
+              <h3 class="font-serif text-lg text-ink mb-2">Kulekhani Reservoir</h3>
+              <p class="text-sm text-inkSubtle leading-relaxed">Nepal's only reservoir-type hydropower plant (92 MW) was built with Japanese assistance, providing crucial dry-season peaking power.</p>
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-2 timeline-item relative pl-14">
+            <div class="timeline-dot"></div>
+            <div class="bg-cream rounded-2xl p-6 border border-sandLight">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="font-mono text-sm font-semibold text-danger bg-dangerPale px-3 py-1 rounded-lg">2008</span>
+                <span class="text-xs text-inkSubtle uppercase tracking-wider font-medium">Crisis</span>
+              </div>
+              <h3 class="font-serif text-lg text-ink mb-2">Peak Load Shedding</h3>
+              <p class="text-sm text-inkSubtle leading-relaxed">Power cuts reached 14-16 hours daily. The crisis spurred public demand for reform and accelerated hydropower development.</p>
+            </div>
+          </div>
+
+          <div class="reveal timeline-item relative pl-14">
+            <div class="timeline-dot"></div>
+            <div class="bg-cream rounded-2xl p-6 border border-sandLight">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="font-mono text-sm font-semibold text-energy bg-energyPale px-3 py-1 rounded-lg">2016</span>
+                <span class="text-xs text-inkSubtle uppercase tracking-wider font-medium">Turnaround</span>
+              </div>
+              <h3 class="font-serif text-lg text-ink mb-2">Load Shedding Ends in Kathmandu</h3>
+              <p class="text-sm text-inkSubtle leading-relaxed">Thanks to new plants and improved management, the capital became load-shedding free — a symbolic milestone for the nation.</p>
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-1 timeline-item relative pl-14">
+            <div class="timeline-dot"></div>
+            <div class="bg-cream rounded-2xl p-6 border border-sandLight">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="font-mono text-sm font-semibold text-energy bg-energyPale px-3 py-1 rounded-lg">2021</span>
+                <span class="text-xs text-inkSubtle uppercase tracking-wider font-medium">Milestone</span>
+              </div>
+              <h3 class="font-serif text-lg text-ink mb-2">Upper Tamakoshi Goes Live</h3>
+              <p class="text-sm text-inkSubtle leading-relaxed">The 456 MW Upper Tamakoshi Hydropower Project — Nepal's largest domestically financed plant — began full commercial operation.</p>
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-2 timeline-item relative pl-14">
+            <div class="timeline-dot"></div>
+            <div class="bg-cream rounded-2xl p-6 border border-sandLight">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="font-mono text-sm font-semibold text-accent bg-accentPale px-3 py-1 rounded-lg">2023</span>
+                <span class="text-xs text-inkSubtle uppercase tracking-wider font-medium">Export Era</span>
+              </div>
+              <h3 class="font-serif text-lg text-ink mb-2">Nepal Becomes Net Exporter</h3>
+              <p class="text-sm text-inkSubtle leading-relaxed">For the first time, Nepal exported 452 MW to India during monsoon months, marking a historic shift from importer to exporter.</p>
+            </div>
+          </div>
+
+          <div class="reveal timeline-item relative pl-14">
+            <div class="timeline-dot"></div>
+            <div class="bg-cream rounded-2xl p-6 border border-sandLight">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="font-mono text-sm font-semibold text-energy bg-energyPale px-3 py-1 rounded-lg">2024</span>
+                <span class="text-xs text-inkSubtle uppercase tracking-wider font-medium">Present</span>
+              </div>
+              <h3 class="font-serif text-lg text-ink mb-2">Nationwide 24/7 Power</h3>
+              <p class="text-sm text-inkSubtle leading-relaxed">Nepal achieved round-the-clock electricity supply nationwide. Total installed capacity crossed 2,700 MW with 83% from hydropower.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CALCULATOR ==================== -->
+  <section id="calculator" class="py-24 lg:py-32 bg-cream">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <div class="reveal">
+          <span class="tag bg-accentPale text-accent mb-4">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+            Interactive Tool
+          </span>
+        </div>
+        <h2 class="reveal reveal-delay-1 font-serif text-4xl lg:text-5xl text-ink leading-tight mb-4">
+          Solar Savings <span class="text-accent">Calculator</span>
+        </h2>
+        <p class="reveal reveal-delay-2 text-inkSubtle text-lg max-w-xl mx-auto">
+          Estimate your potential savings by switching to rooftop solar based on typical Nepali household consumption.
+        </p>
+      </div>
+
+      <div class="reveal reveal-delay-2 bg-white rounded-3xl p-8 lg:p-10 border border-sandLight shadow-lg shadow-accent/5">
+        <div class="grid md:grid-cols-2 gap-10">
+          <div class="space-y-8">
+            <div>
+              <label class="flex items-center justify-between text-sm font-medium text-ink mb-3">
+                <span>Monthly Units (kWh)</span>
+                <span class="font-mono text-accent bg-accentPale px-3 py-1 rounded-lg" id="unitDisplay">150</span>
+              </label>
+              <input type="range" min="50" max="1000" value="150" class="w-full accent-accent h-2 bg-sandLight rounded-full appearance-none cursor-pointer" id="unitSlider" style="accent-color: #1E3A8A;">
+              <div class="flex justify-between text-xs text-inkSubtle mt-2">
+                <span>50 kWh</span>
+                <span>1000 kWh</span>
+              </div>
+            </div>
+
+            <div>
+              <label class="flex items-center justify-between text-sm font-medium text-ink mb-3">
+                <span>Solar System Size (kW)</span>
+                <span class="font-mono text-energy bg-energyPale px-3 py-1 rounded-lg" id="solarDisplay">3</span>
+              </label>
+              <input type="range" min="1" max="20" value="3" class="w-full accent-energy h-2 bg-sandLight rounded-full appearance-none cursor-pointer" id="solarSlider" style="accent-color: #059669;">
+              <div class="flex justify-between text-xs text-inkSubtle mt-2">
+                <span>1 kW</span>
+                <span>20 kW</span>
+              </div>
+            </div>
+
+            <div>
+              <label class="flex items-center justify-between text-sm font-medium text-ink mb-3">
+                <span>NEA Tariff (NPR/kWh)</span>
+                <span class="font-mono text-alert bg-alertPale px-3 py-1 rounded-lg" id="tariffDisplay">11.50</span>
+              </label>
+              <input type="range" min="8" max="20" step="0.5" value="11.5" class="w-full accent-alert h-2 bg-sandLight rounded-full appearance-none cursor-pointer" id="tariffSlider" style="accent-color: #B45309;">
+              <div class="flex justify-between text-xs text-inkSubtle mt-2">
+                <span>NPR 8</span>
+                <span>NPR 20</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col justify-center">
+            <div class="bg-cream rounded-2xl p-6 border border-sandLight space-y-5">
+              <div class="flex items-center justify-between pb-4 border-b border-sandLight">
+                <span class="text-sm text-inkSubtle">Current Monthly Bill</span>
+                <span class="font-mono text-lg font-semibold text-ink" id="currentBill">NPR 1,725</span>
+              </div>
+              <div class="flex items-center justify-between pb-4 border-b border-sandLight">
+                <span class="text-sm text-inkSubtle">Solar Generation</span>
+                <span class="font-mono text-lg font-semibold text-energy" id="solarGen">360 kWh</span>
+              </div>
+              <div class="flex items-center justify-between pb-4 border-b border-sandLight">
+                <span class="text-sm text-inkSubtle">New Monthly Bill</span>
+                <span class="font-mono text-lg font-semibold text-accent" id="newBill">NPR 0</span>
+              </div>
+              <div class="flex items-center justify-between pt-1">
+                <span class="text-sm font-medium text-ink">Monthly Savings</span>
+                <span class="font-mono text-2xl font-bold text-energy" id="monthlySavings">NPR 1,725</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm font-medium text-ink">Annual Savings</span>
+                <span class="font-mono text-2xl font-bold text-energy" id="annualSavings">NPR 20,700</span>
+              </div>
+              <div class="flex items-center justify-between pt-2 border-t border-sandLight">
+                <span class="text-sm text-inkSubtle">Payback Period</span>
+                <span class="font-mono text-lg font-semibold text-accent" id="payback">~8 years</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== QUOTE ==================== -->
+  <section class="py-24 lg:py-32 bg-white relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative">
+      <div class="quote-mark absolute -top-4 left-1/2 -translate-x-1/2">"</div>
+      <blockquote class="reveal relative z-10">
+        <p class="font-serif text-3xl lg:text-4xl text-ink leading-snug mb-8 italic">
+          Nepal's hydropower potential is not just a resource — it is our destiny. With 83,000 MW waiting in our rivers, we have the power to light up not only our own future but that of our neighbors as well.
+        </p>
+        <footer>
+          <div class="w-16 h-px bg-sandBorder mx-auto mb-6"></div>
+          <cite class="not-italic">
+            <span class="font-semibold text-ink text-lg">Kul Man Ghising</span>
+            <span class="block text-inkSubtle text-sm mt-1">Managing Director, Nepal Electricity Authority</span>
+          </cite>
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ==================== CTA ==================== -->
+  <section class="py-24 lg:py-32 bg-cream relative overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute top-0 left-1/4 w-96 h-96 bg-accent/3 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-energy/5 rounded-full blur-3xl"></div>
+    </div>
+    <div class="max-w-3xl mx-auto px-6 lg:px-8 text-center relative z-10">
+      <div class="reveal">
+        <h2 class="font-serif text-4xl lg:text-5xl text-ink leading-tight mb-6">
+          Be Part of Nepal's<br>
+          <span class="text-accent">Energy Revolution</span>
+        </h2>
+        <p class="text-inkSubtle text-lg leading-relaxed mb-10 max-w-xl mx-auto">
+          Whether you're a student, policymaker, or citizen — understanding Nepal's electricity landscape is the first step toward building a brighter, more sustainable future.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#problems" class="btn-primary">
+            Explore the Challenges
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+          <a href="#solutions" class="btn-ghost">
+            View Solutions
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer-top">
+    <div class="footer-grid-pattern"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-20">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-xl bg-accent flex items-center justify-center">
+              <svg class="w-5 h-5 text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <span class="font-serif text-xl text-white tracking-tight">Nepal<span class="text-accentMuted">Power</span></span>
+          </div>
+          <p class="text-slate-400 text-sm leading-relaxed max-w-sm mb-6">
+            A comprehensive resource on Nepal's electricity sector — documenting challenges, celebrating progress, and illuminating the path to energy independence.
+          </p>
+          <div class="flex items-center gap-4">
+            <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+              </svg>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-5">Navigation</h4>
+          <ul class="space-y-3">
+            <li><a href="#home" class="text-slate-400 text-sm hover:text-white transition-colors duration-300">Home</a></li>
+            <li><a href="#problems" class="text-slate-400 text-sm hover:text-white transition-colors duration-300">Problems</a></li>
+            <li><a href="#solutions" class="text-slate-400 text-sm hover:text-white transition-colors duration-300">Solutions</a></li>
+            <li><a href="#data" class="text-slate-400 text-sm hover:text-white transition-colors duration-300">Data</a></li>
+            <li><a href="#timeline" class="text-slate-400 text-sm hover:text-white transition-colors duration-300">Timeline</a></li>
+            <li><a href="#calculator" class="text-slate-400 text-sm hover:text-white transition-colors duration-300">Calculator</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-5">Resources</h4>
+          <ul class="space-y-3">
+            <li><a href="https://www.nea.org.np" target="_blank" class="text-slate-400 text-sm hover:text-white transition-colors duration-300">NEA Official</a></li>
+            <li><a href="https://www.moen.gov.np" target="_blank" class="text-slate-400 text-sm hover:text-white transition-colors duration-300">Ministry of Energy</a></li>
+            <li><a href="https://www.doed.gov.np" target="_blank" class="text-slate-400 text-sm hover:text-white transition-colors duration-300">Dept. of Electricity</a></li>
+            <li><a href="https://www.nepalenergyforum.org" target="_blank" class="text-slate-400 text-sm hover:text-white transition-colors duration-300">Energy Forum</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-10 border-t border-white/10">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-accent/20 border border-accent/30 flex items-center justify-center">
+              <svg class="w-6 h-6 text-accentMuted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-white font-medium text-sm">Prepared by Bikash Poudel</p>
+              <p class="text-slate-400 text-xs mt-0.5">Kanti Secondary School</p>
+            </div>
+          </div>
+          <p class="text-slate-500 text-xs"> Nepal Electricity in Nepal. All data sourced from NEA, World Bank, and IEA reports.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ==================== NAV SCROLL ====================
+    const navbar = document.getElementById('navbar');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+
+      // Active section highlighting
+      const sections = document.querySelectorAll('section[id]');
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // ==================== MOBILE MENU ====================
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+    });
+
+    function closeMobileMenu() {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+    }
+
+    // ==================== SCROLL REVEAL ====================
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // ==================== STAT COUNTER ====================
+    const statNumbers = document.querySelectorAll('.stat-number');
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = parseInt(entry.target.dataset.target);
+          animateCounter(entry.target, target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.5
+    });
+
+    statNumbers.forEach(el => counterObserver.observe(el));
+
+    function animateCounter(el, target) {
+      const duration = 2000;
+      const start = performance.now();
+      const startValue = 0;
+
+      function update(currentTime) {
+        const elapsed = currentTime - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(startValue + (target - startValue) * eased);
+        el.textContent = current.toLocaleString();
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    }
+
+    // ==================== PROGRESS BARS ====================
+    const progressBars = document.querySelectorAll('.progress-fill');
+
+    const progressObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('animated');
+          }, 300);
+          progressObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.5
+    });
+
+    progressBars.forEach(bar => progressObserver.observe(bar));
+
+    // ==================== CANVAS CHART ====================
+    function drawChart() {
+      const canvas = document.getElementById('generationChart');
+      if (!canvas) return;
+      const container = canvas.parentElement;
+      canvas.width = container.clientWidth;
+      canvas.height = container.clientHeight;
+      const ctx = canvas.getContext('2d');
+      const w = canvas.width;
+      const h = canvas.height;
+      const padding = { top: 20, right: 20, bottom: 40, left: 50 };
+      const chartW = w - padding.left - padding.right;
+      const chartH = h - padding.top - padding.bottom;
+
+      const years = [2010, 2012, 2014, 2016, 2018, 2020, 2022, 2024];
+      const generation = [700, 750, 800, 1050, 1200, 1400, 2100, 2700];
+      const demand = [900, 1000, 1150, 1300, 1550, 1800, 2000, 2150];
+
+      const maxVal = 3000;
+      const xStep = chartW / (years.length - 1);
+
+      function getX(i) {
+        return padding.left + i * xStep;
+      }
+
+      function getY(val) {
+        return padding.top + chartH - (val / maxVal) * chartH;
+      }
+
+      // Grid
+      ctx.strokeStyle = '#E8DDD0';
+      ctx.lineWidth = 1;
+      for (let i = 0; i <= 5; i++) {
+        const y = padding.top + (chartH / 5) * i;
+        ctx.beginPath();
+        ctx.moveTo(padding.left, y);
+        ctx.lineTo(w - padding.right, y);
+        ctx.stroke();
+        ctx.fillStyle = '#94A3B8';
+        ctx.font = '11px Inter, sans-serif';
+        ctx.textAlign = 'right';
+        ctx.fillText((maxVal - (maxVal / 5) * i).toString(), padding.left - 8, y + 4);
+      }
+
+      // X labels
+      years.forEach((year, i) => {
+        ctx.fillStyle = '#64748B';
+        ctx.font = '11px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(year.toString(), getX(i), h - 12);
+      });
+
+      // Generation line
+      ctx.beginPath();
+      ctx.strokeStyle = '#1E3A8A';
+      ctx.lineWidth = 3;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      generation.forEach((val, i) => {
+        if (i === 0) ctx.moveTo(getX(i), getY(val));
+        else {
+          const cpX = (getX(i - 1) + getX(i)) / 2;
+          ctx.bezierCurveTo(cpX, getY(generation[i - 1]), cpX, getY(val), getX(i), getY(val));
+        }
+      });
+      ctx.stroke();
+
+      // Generation area
+      ctx.beginPath();
+      ctx.moveTo(getX(0), getY(generation[0]));
+      generation.forEach((val, i) => {
+        if (i === 0) return;
+        const cpX = (getX(i - 1) + getX(i)) / 2;
+        ctx.bezierCurveTo(cpX, getY(generation[i - 1]), cpX, getY(val), getX(i), getY(val));
+      });
+      ctx.lineTo(getX(years.length - 1), padding.top + chartH);
+      ctx.lineTo(getX(0), padding.top + chartH);
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(30, 58, 138, 0.06)';
+      ctx.fill();
+
+      // Demand line
+      ctx.beginPath();
+      ctx.strokeStyle = '#F59E0B';
+      ctx.lineWidth = 3;
+      demand.forEach((val, i) => {
+        if (i === 0) ctx.moveTo(getX(i), getY(val));
+        else {
+          const cpX = (getX(i - 1) + getX(i)) / 2;
+          ctx.bezierCurveTo(cpX, getY(demand[i - 1]), cpX, getY(val), getX(i), getY(val));
+        }
+      });
+      ctx.stroke();
+
+      // Demand area
+      ctx.beginPath();
+      ctx.moveTo(getX(0), getY(demand[0]));
+      demand.forEach((val, i) => {
+        if (i === 0) return;
+        const cpX = (getX(i - 1) + getX(i)) / 2;
+        ctx.bezierCurveTo(cpX, getY(demand[i - 1]), cpX, getY(val), getX(i), getY(val));
+      });
+      ctx.lineTo(getX(years.length - 1), padding.top + chartH);
+      ctx.lineTo(getX(0), padding.top + chartH);
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(245, 158, 11, 0.04)';
+      ctx.fill();
+
+      // Points
+      generation.forEach((val, i) => {
+        ctx.beginPath();
+        ctx.fillStyle = '#1E3A8A';
+        ctx.arc(getX(i), getY(val), 5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.fillStyle = '#FFFFFF';
+        ctx.arc(getX(i), getY(val), 2.5, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      demand.forEach((val, i) => {
+        ctx.beginPath();
+        ctx.fillStyle = '#F59E0B';
+        ctx.arc(getX(i), getY(val), 5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.fillStyle = '#FFFFFF';
+        ctx.arc(getX(i), getY(val), 2.5, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    }
+
+    const chartContainer = document.getElementById('mainChart');
+    if (chartContainer) {
+      const chartObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setTimeout(drawChart, 400);
+            chartObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.3
+      });
+      chartObserver.observe(chartContainer);
+    }
+
+    window.addEventListener('resize', drawChart);
+
+    // ==================== CALCULATOR ====================
+    const unitSlider = document.getElementById('unitSlider');
+    const solarSlider = document.getElementById('solarSlider');
+    const tariffSlider = document.getElementById('tariffSlider');
+    const unitDisplay = document.getElementById('unitDisplay');
+    const solarDisplay = document.getElementById('solarDisplay');
+    const tariffDisplay = document.getElementById('tariffDisplay');
+    const currentBill = document.getElementById('currentBill');
+    const solarGen = document.getElementById('solarGen');
+    const newBill = document.getElementById('newBill');
+    const monthlySavings = document.getElementById('monthlySavings');
+    const annualSavings = document.getElementById('annualSavings');
+    const payback = document.getElementById('payback');
+
+    function updateCalculator() {
+      const units = parseInt(unitSlider.value);
+      const solarKW = parseInt(solarSlider.value);
+      const tariff = parseFloat(tariffSlider.value);
+
+      unitDisplay.textContent = units;
+      solarDisplay.textContent = solarKW;
+      tariffDisplay.textContent = tariff.toFixed(2);
+
+      const generated = solarKW * 120; // ~120 kWh/kW/month in Nepal
+      const bill = units * tariff;
+      const newBillVal = Math.max(0, (units - generated) * tariff);
+      const savings = bill - newBillVal;
+      const annual = savings * 12;
+      const systemCost = solarKW * 85000; // NPR 85,000 per kW installed
+      const paybackYears = savings > 0 ? (systemCost / annual).toFixed(1) : 'N/A';
+
+      currentBill.textContent = 'NPR ' + Math.round(bill).toLocaleString();
+      solarGen.textContent = generated.toLocaleString() + ' kWh';
+      newBill.textContent = 'NPR ' + Math.round(newBillVal).toLocaleString();
+      monthlySavings.textContent = 'NPR ' + Math.round(savings).toLocaleString();
+      annualSavings.textContent = 'NPR ' + Math.round(annual).toLocaleString();
+      payback.textContent = paybackYears !== 'N/A' ? '~' + paybackYears + ' years' : 'N/A';
+    }
+
+    unitSlider.addEventListener('input', updateCalculator);
+    solarSlider.addEventListener('input', updateCalculator);
+    tariffSlider.addEventListener('input', updateCalculator);
+
+    updateCalculator();
+
+    // ==================== CURSOR GLOW ====================
+    const cursorGlow = document.getElementById('cursorGlow');
+
+    document.addEventListener('mousemove', (e) => {
+      cursorGlow.style.left = e.clientX + 'px';
+      cursorGlow.style.top = e.clientY + 'px';
+    });
+
+    // ==================== PARALLAX HERO IMAGE ====================
+    const heroImg = document.getElementById('heroImg');
+    if (heroImg) {
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        const maxScroll = window.innerHeight;
+        const progress = Math.min(scrollY / maxScroll, 1);
+        heroImg.style.transform = `scale(1.05) translateY(${progress * 30}px)`;
+      });
+    }
+
+    // ==================== SMOOTH SCROLL ====================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
